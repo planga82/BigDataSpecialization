@@ -1,0 +1,23 @@
+source="ad-clicks.csv" | stats count(adId) as cuenta | eval res=cuenta*0.5
+
+
+source="ad-clicks.csv" adCategory=electronics | stats count(adId) as cuenta | eval res=cuenta*0.75
+823
+
+source="ad-clicks.csv" adCategory!=electronics | stats count(adId) as cuenta | eval res=cuenta*0.40
+6090
+
+source="buy-clicks.csv" | stats sum(price) as totalGanado | eval beneficio = totalGanado*0.02
+
+source="buy-clicks.csv" | stats dc(buyId)
+
+source="buy-clicks.csv" | stats count by buyId | sort - count
+
+source="buy-clicks.csv" | stats sum(price) as spent by userId | sort - spent
+
+
+
+
+
+
+
